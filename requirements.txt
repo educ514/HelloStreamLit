@@ -2,11 +2,4 @@ streamlit
 numpy
 pandas
 matplotlib
-streamlit
 scikit-learn
-PyQt6
-darkdetect
-requests
-bs4
-clipboard
-

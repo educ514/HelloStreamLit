@@ -4,18 +4,16 @@
 # ══════════════════════════════════════════════════════════════════════════════════════════
 # 외부모듈 영역
 # ══════════════════════════════════════════════════════════════════════════════════════════
-# import sys                                  # system 모듈(Built-In)
-# import os                                   # os 모듈(Built-In)
-# import time                                 # time 모듈(Built-In)
-# import datetime                             # datetime 모듈(Built-in)
+import sys                                  # system 모듈(Built-In)
+import os                                   # os 모듈(Built-In)
+import time                                 # time 모듈(Built-In)
+import datetime                             # datetime 모듈(Built-in)
+import traceback                            # datetime 모듈(Built-in)
 
 import streamlit as st                      # streamlit 모듈(pip install streamlit)
 
 import Css                                  # CSS 모듈(User)
 import webMain                              # webMain 모듈(User)
-
-# from ComMgr import Common as Com            # 공통 모듈(User)
-import ExceptionMgr                         # 예외 처리 모듈(User)
 # ══════════════════════════════════════════════════════════════════════════════════════════
 # 사용자정의 클래스 영역
 # ------------------------------------------------------------------------------------------
@@ -67,7 +65,7 @@ class Main():
             # Parent2.__init__(self)                  # 부모 클래스가 두개 이상인 경우 부모 객체 생성
             # ==============================================================================
         except Exception as Ex:
-            ExceptionMgr.Except.DisplayException(None)      # 예외처리(콘솔)
+            print(traceback.format_exc())           # 예외 출력하기(예외처리)
     # ======================================================================================
     # 프로그램 진입점 관리 - 필수영역
     # ======================================================================================
@@ -84,10 +82,6 @@ class Main():
             import importlib                        # importlib 모듈(Built-in)
             importlib.reload(Css)
             importlib.reload(webMain)
-            # --------------------------------------------------------------
-            # 예외 처리 설정
-            # --------------------------------------------------------------
-            ExceptionMgr.Except.SetMode(ExceptionMgr.Except.Const.MODE_DEBUG)
             # --------------------------------------------------------------
             st.set_page_config(layout="wide")
             # --------------------------------------------------------------
@@ -109,7 +103,7 @@ class Main():
             self.Form.ExpKnnc()
             # --------------------------------------------------------------
         except Exception as Ex:
-            ExceptionMgr.Except.DisplayException(None)      # 예외처리(콘솔)
+            print(traceback.format_exc())               # 예외 출력하기(예외처리)
 # ══════════════════════════════════════════════════════════════════════════════════════════
 # 응용 프로그램 호출
 # ══════════════════════════════════════════════════════════════════════════════════════════
@@ -117,7 +111,7 @@ if __name__ == '__main__':
     try:
         Main().Start()
     except Exception as Ex:
-        ExceptionMgr.Except.DisplayException(None)          # 예외처리(콘솔)
+        print(traceback.format_exc())                   # 예외 출력하기(예외처리)
 # ##################################################################################################
 # <END>
 # ##################################################################################################

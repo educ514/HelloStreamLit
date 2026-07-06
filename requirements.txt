@@ -3,7 +3,7 @@ numpy
 pandas
 matplotlib
 streamlit
-sklearn
+scikit-learn
 PyQt6
 darkdetect
 requests

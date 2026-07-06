@@ -3,7 +3,3 @@ numpy
 pandas
 matplotlib
 scikit-learn
-darkdetect
-requests
-bs4
-clipboard

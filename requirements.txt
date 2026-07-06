@@ -1,0 +1,12 @@
+streamlit
+numpy
+pandas
+matplotlib
+streamlit
+sklearn
+PyQt6
+darkdetect
+requests
+bs4
+clipboard
+

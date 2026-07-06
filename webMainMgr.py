@@ -4,11 +4,11 @@
 # ══════════════════════════════════════════════════════════════════════════════════════════
 # 외부모듈 영역
 # ══════════════════════════════════════════════════════════════════════════════════════════
-import sys                                  # system 모듈(Built-In)
-import os                                   # os 모듈(Built-In)
-import io                                   # io 모듈(Built-In)
-import time                                 # time 모듈(Built-In)
-import datetime                             # datetime 모듈(Built-in)
+# import sys                                  # system 모듈(Built-In)
+# import os                                   # os 모듈(Built-In)
+# import io                                   # io 모듈(Built-In)
+# import time                                 # time 모듈(Built-In)
+# import datetime                             # datetime 모듈(Built-in)
 
 import numpy as np                          # Numpy 모듈(pip install numpy)
 import pandas as pd                         # Pandas 모듈(pip install pandas)
@@ -20,13 +20,13 @@ import streamlit as st                      # streamlit 모듈(pip install strea
 
 import sklearn.model_selection              # sklearn.model_selection 모듈(pip install scikit-learn)
 import sklearn.neighbors                    # sklearn.neighbors 모듈(pip install scikit-learn)
-import sklearn.metrics                      # sklearn.metrics 모듈(pip install scikit-learn)
-import sklearn.linear_model                 # sklearn.linear_model 모듈(pip install scikit-learn)
-import sklearn.preprocessing                # sklearn.preprocessing 모듈(pip install scikit-learn)
-import sklearn.tree                         # sklearn.tree 모듈(pip install scikit-learn)
-import sklearn.ensemble                     # sklearn.ensemble 모듈(pip install scikit-learn)
+# import sklearn.metrics                      # sklearn.metrics 모듈(pip install scikit-learn)
+# import sklearn.linear_model                 # sklearn.linear_model 모듈(pip install scikit-learn)
+# import sklearn.preprocessing                # sklearn.preprocessing 모듈(pip install scikit-learn)
+# import sklearn.tree                         # sklearn.tree 모듈(pip install scikit-learn)
+# import sklearn.ensemble                     # sklearn.ensemble 모듈(pip install scikit-learn)
 
-from ComMgr import Common as Com            # 공통 모듈(User)
+# from ComMgr import Common as Com            # 공통 모듈(User)
 import ExceptionMgr                         # 예외 처리 모듈(User)
 # ══════════════════════════════════════════════════════════════════════════════════════════
 # 사용자정의 클래스 영역
@@ -168,8 +168,6 @@ class Knnc():
             bResult = True
         except Exception as Ex:
             raise Ex                        # 예외 던지기
-        finally:
-            Com.SetMouseCursor(False)
         
         return bResult
     # ——————————————————————————————————————————————————————————————————————————————

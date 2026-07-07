@@ -16,6 +16,7 @@ import pandas as pd                         # Pandas 모듈(pip install pandas)
 
 import matplotlib.pyplot as plt             # matplotlib.pyplot 모듈(pip install matplotlib)
 import matplotlib as pltlib                 # matplotlib 모듈(pip install matplotlib)
+import matplotlib.font_manager as pltfont   # matplotlib 모듈(pip install matplotlib)
 
 import streamlit as st                      # streamlit 모듈(pip install streamlit)
 
@@ -55,6 +56,8 @@ class Knnc():
     # Return    - None
     # ——————————————————————————————————————————————————————————————————————————————
     def __init__(self): #, Form:Ui_frmMain.Ui_Form) -> None:
+        sFontPath = None
+
         try:
             # ==============================================================================
             # 전역변수 관리 - 필수영역(인스턴스변수)
@@ -88,6 +91,22 @@ class Knnc():
             # 이런 경우 매번 초기화 방지를 위해 아래 코드 필요!
             # if 'hello' not in st.session_state: 처럼
             #    st.session_state.hello = None
+            # --------------------------------------------------------------
+            # matplotlib 폰트가 StreamLit Cloud 에서 깨짐 방지
+            # --------------------------------------------------------------
+            # 나눔 폰트가 설치되는 기본 경로 확인
+            sFontPath = '/usr/share/fonts/truetype/nanum/NanumGothic.ttf'
+
+            if os.path.exists(sFontPath):
+                # 클라우드 환경 (리눅스)
+                font_prop = pltfont.FontProperties(fname=sFontPath)
+                plt.rc('font', family=font_prop.get_name())
+            else:
+                # 로컬 환경 (OS별 자동 지정 또는 맑은 고딕)
+                plt.rc('font', family='Malgun Gothic')
+                
+            # # 마이너스 기호 깨짐 방지
+            # plt.rcParams['axes.unicode_minus'] = False
             # --------------------------------------------------------------
             if 'knnc' not in st.session_state:
                 st.session_state.knnc = None                # k-최근접이웃분류 모델 객체

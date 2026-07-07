@@ -109,18 +109,26 @@ class Knnc():
             # # plt.rcParams['axes.unicode_minus'] = False
 
 
-            # 현재 파이썬 파일과 같은 위치에 있는 폰트 파일 지정
-            sFontPath = os.path.join(os.path.dirname(__file__), "NanumGothic.ttf")
+            # 1. 내 프로젝트 폴더 안에 있는 폰트 파일 경로 지정
+            sFontPath = os.path.join(os.path.dirname(__file__), "malgun.ttf")
 
             if os.path.exists(sFontPath):
+                # 2. 🔥 중요: Matplotlib 폰트 매니저에 외부 ttf 파일을 직접 등록
                 pltfont.fontManager.addfont(sFontPath)
-                
-                font_prop = pltfont.FontProperties(fname=sFontPath)
-                # Matplotlib의 기본 폰트 패밀리 이름을 이 폰트의 실제 이름으로 설정
-                plt.rc('font', family=font_prop.get_name())
+
+                # # 3. 등록된 폰트 파일의 실제 'Font Family 이름'을 가져옴
+                # font_prop = pltfont.FontProperties(fname=sFontPath)
+                # font_name = font_prop.get_name()
+
+                # # 4. 전역 기본 폰트로 설정
+                # plt.rc('font', family=font_name)
             else:
-                # 폰트 파일이 없을 때만 로컬 시스템 폰트 사용
+                # 로컬(윈도우) 등 폰트 파일이 없을 때 대비한 기본값
                 plt.rc('font', family='sans-serif')
+
+            # # 마이너스 기호 깨짐 방지
+            # plt.rcParams['axes.unicode_minus'] = False
+
 
 
 

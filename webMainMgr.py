@@ -220,7 +220,7 @@ class Knnc():
 
             fig, ax = plt.subplots(1, 2, figsize=(8, 4))
 
-            pltlib.rcParams['font.family'] = 'Malgun Gothic'    # 'Consolas', 'Malgun Gothic', 'Gulim', 'Dotum', 'batang'
+            # pltlib.rcParams['font.family'] = 'Malgun Gothic'    # 'Consolas', 'Malgun Gothic', 'Gulim', 'Dotum', 'batang'
             pltlib.rcParams['font.weight'] = 'normal'           # 'normal', 'bold', 'light', 'ultralight', 'heavy', 'black', 'semibold', 'medium'
             pltlib.rcParams['font.size']   = 6
             pltlib.rcParams['axes.unicode_minus'] = False

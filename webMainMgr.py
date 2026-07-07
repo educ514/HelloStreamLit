@@ -113,6 +113,8 @@ class Knnc():
             sFontPath = os.path.join(os.path.dirname(__file__), "NanumGothic.ttf")
 
             if os.path.exists(sFontPath):
+                pltfont.fontManager.addfont(sFontPath)
+                
                 font_prop = pltfont.FontProperties(fname=sFontPath)
                 # Matplotlib의 기본 폰트 패밀리 이름을 이 폰트의 실제 이름으로 설정
                 plt.rc('font', family=font_prop.get_name())

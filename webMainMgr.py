@@ -94,19 +94,34 @@ class Knnc():
             # --------------------------------------------------------------
             # matplotlib 폰트가 StreamLit Cloud 에서 깨짐 방지
             # --------------------------------------------------------------
-            # 나눔 폰트가 설치되는 기본 경로 확인
-            sFontPath = '/usr/share/fonts/truetype/nanum/NanumGothic.ttf'
+            # # 나눔 폰트가 설치되는 기본 경로 확인
+            # sFontPath = '/usr/share/fonts/truetype/nanum/NanumGothic.ttf'
+
+            # if os.path.exists(sFontPath):
+            #     # 클라우드 환경 (리눅스)
+            #     font_prop = pltfont.FontProperties(fname=sFontPath)
+            #     plt.rc('font', family=font_prop.get_name())
+            # else:
+            #     # 로컬 환경 (OS별 자동 지정 또는 맑은 고딕)
+            #     plt.rc('font', family='Malgun Gothic')
+                
+            # # # 마이너스 기호 깨짐 방지
+            # # plt.rcParams['axes.unicode_minus'] = False
+
+
+            # 현재 파이썬 파일과 같은 위치에 있는 폰트 파일 지정
+            sFontPath = os.path.join(os.path.dirname(__file__), "NanumGothic.ttf")
 
             if os.path.exists(sFontPath):
-                # 클라우드 환경 (리눅스)
                 font_prop = pltfont.FontProperties(fname=sFontPath)
+                # Matplotlib의 기본 폰트 패밀리 이름을 이 폰트의 실제 이름으로 설정
                 plt.rc('font', family=font_prop.get_name())
             else:
-                # 로컬 환경 (OS별 자동 지정 또는 맑은 고딕)
-                plt.rc('font', family='Malgun Gothic')
-                
-            # # 마이너스 기호 깨짐 방지
-            # plt.rcParams['axes.unicode_minus'] = False
+                # 폰트 파일이 없을 때만 로컬 시스템 폰트 사용
+                plt.rc('font', family='sans-serif')
+
+
+
             # --------------------------------------------------------------
             if 'knnc' not in st.session_state:
                 st.session_state.knnc = None                # k-최근접이웃분류 모델 객체
